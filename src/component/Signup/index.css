@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.signContainer {
+    background-image: url("https://ik.imagekit.io/yes4v45dgd/gradient-dark-blue-futuristic-digital-background.jpg?updatedAt=1763209134985");
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.formsigncontainer {
+     background-color: white;
+     box-shadow: rgba(19, 6, 6, 0.3) 0px 19px 38px, rgba(20, 8, 8, 0.22) 0px 15px 12px;
+     border-radius: 20px;
+     height: 90vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 26vw;
+
+
+}
+
+.logologin {
+    height: 18vh;
+    width: 9vw;
+    position: relative;
+}
+
+
+.passwordlabellogin {
+        font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  
+    
+}
+
+
+.inputdivsigncont {
+    height: 53vh;
+    width: 76%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}
+
+.buttonlogincont {
+     height: 05vh;
+    width: 73%;
+    background-color: blue;
+    border-color: rgba(0, 0, 255, 0.804);
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    margin-bottom: 17px;
+}
+
+.inputusernamesign {
+    height: 5vh;
+    width: 19vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-bottom: 28px;
+
+}
+  
+.usernamelabelsign  { 
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}

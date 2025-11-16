@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.imglogo {
+    height: 11vh;
+    width: auto;
+    margin-left: 10px;
+}
+
+.navContainer {
+    height: 11vh;
+    width: 100%;
+    background-color: #4B0150;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ulContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    height: 10vh;
+    width: 60%;
+    list-style-type: none;
+   align-items: center;
+}
+
+.linkhome {
+    color: white;
+    text-decoration: none;
+}
+
+.homelist {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: calibri;
+
+}
+.linkhome:hover {
+text-decoration:underline;
+ color:  rgb(225, 255, 0);
+}
+
+.linkcart:hover {
+text-decoration:underline;
+ color:  rgb(225, 255, 0);
+}
+
+.linkitem:hover {
+text-decoration:underline;
+ color:  rgb(225, 255, 0);
+}
+.homelist:hover {
+    transform: scale(1.1);
+    color:  rgb(225, 255, 0);
+    
+}
+
+.homelist:active {
+    color:  rgb(225, 255, 0);
+}
+
+
+.linkitem {
+    color: white;
+    text-decoration: none;
+}
+
+.homeitem {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: calibri;
+
+}
+.homeitem:hover {
+    transform: scale(1.1);
+     color:  rgb(225, 255, 0);
+}
+
+.homeitem:active {
+     color:  rgb(225, 255, 0);
+}
+
+
+.linkcart {
+    color: white;
+    text-decoration: none;
+}
+
+.homecart {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: calibri;
+
+}
+.homecart:hover {
+    transform: scale(1.1);
+     color:  rgb(225, 255, 0);
+}
+
+.homecart:active {
+     color:  rgb(225, 255, 0);
+}
+
+.buttonLogin {
+    color: white;
+    background-color: rgb(76, 0, 255);
+    border-color: rgb(76, 0, 255);
+    height: 4vh;
+    width: 5vw;
+    border-radius: 10px;
+    
+}

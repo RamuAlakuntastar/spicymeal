@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+
+
+
+
+.homeconimage {
+    margin: 0%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center ;
+    width: 100%;
+     background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    background-image: url("https://ik.imagekit.io/yes4v45dgd/top-close-up-view-cabbage-with-carrots-plate-cabbage-carrots-herbs-fork-bowls-spices%20(1).jpg?updatedAt=1763200747386");
+}
+
+.headingposter1 {
+  z-index: 2;
+  color: orange;
+  font-weight: bold;
+  font-size: 35px;
+  font-style: italic;
+   font-family: "Lucida Handwriting", cursive;
+}       
+
+.homeconimage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);  
+    z-index: 1;
+}
+
+.paraposter1 {
+   z-index: 2;
+  color: orange;
+  font-weight: bold;
+  font-size: 25px;
+  font-style: italic;
+   font-family: "Lucida Handwriting", cursive;
+}
+
+.paraposter2 {
+   z-index: 2;
+  color: orange;
+  font-weight: bold;
+  font-size: 20px;
+  font-style: italic;
+   font-family: Georgia;
+}
+
+.buttonordernow {
+    color: white;
+    background-color: orangered;
+    border-color: orangered;
+    height: 5vh;
+    width: 7vw;
+    z-index: 2;
+}
