@@ -1,11 +1,10 @@
-import './index.css'
-import { Link, Navigate } from "react-router-dom"
+import "./index.css";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiLockPasswordLine } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import { Component } from 'react';
+import { Component } from "react";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 
 class Signup extends Component {
   state = {
@@ -13,67 +12,60 @@ class Signup extends Component {
     inputemailsign: "",
     inputpasssign: "",
     inputconfirmsign: "",
-    errorMsg: ""
+    errorMsg: "",
   };
-  
 
-  // SUCCESS
+  // SUCCESS HANDLER
   successresponse = (data) => {
-    Cookies.set("jwt_token", data, { expires: 1000000, path: "/" });
-    this.props.navigate("/", { replace: true });  
+    Cookies.set("jwt_token", data.token, { expires: 30, path: "/" });
+    this.props.navigate("/", { replace: true });
   };
 
+  // FAILURE HANDLER
   failureresponse = (data) => {
     this.setState({ errorMsg: data.message || "Signup failed" });
-  };
-
-  onChangeuserSignup = (event) => {
-    this.setState({ inputusersign: event.target.value });
-  };
-
-  onChangeemailSignup = (event) => {
-    this.setState({ inputemailsign: event.target.value });
-  };
-
-  onChangepassSignup = (event) => {
-    this.setState({ inputpasssign: event.target.value });
-  };
-
-  onChangeconfirmpassSignup = (event) => {
-    this.setState({ inputconfirmsign: event.target.value });
   };
 
   onSubmit = async (event) => {
     event.preventDefault();
 
-    const { inputusersign, inputemailsign, inputpasssign, inputconfirmsign } = this.state;
+    const { inputusersign, inputemailsign, inputpasssign, inputconfirmsign } =
+      this.state;
 
     const userDetails = {
       username: inputusersign,
       email: inputemailsign,
       password: inputpasssign,
-      confirmPassword: inputconfirmsign
+      confirmPassword: inputconfirmsign,
     };
 
-    const response = await fetch("https://userbackend-5mlf.onrender.com/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(userDetails)
-    });
+    try {
+      const response = await fetch(
+        "https://userbackend-5mlf.onrender.com/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userDetails),
+        }
+      );
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      this.successresponse(data);
-    } else {
-      this.failureresponse(data);
+      if (response.ok) {
+        this.successresponse(data);
+      } else {
+        this.failureresponse(data);
+      }
+    } catch (err) {
+      this.setState({ errorMsg: "Unable to connect to server" });
     }
   };
 
   render() {
-    const { errorMsg, inputconfirmsign, inputemailsign, inputpasssign, inputusersign } = this.state;
+    const { errorMsg, inputusersign, inputemailsign, inputpasssign, inputconfirmsign } =
+      this.state;
 
+    // Already logged in
     const jwtToken = Cookies.get("jwt_token");
     if (jwtToken !== undefined) {
       return <Navigate to="/" replace />;
@@ -81,71 +73,76 @@ class Signup extends Component {
 
     return (
       <div className="signContainer">
-        <form className='formsigncontainer' onSubmit={this.onSubmit}>
-          
-          <img 
-            src='https://res.cloudinary.com/dune02pvg/image/upload/v1763186951/freepik-hand-drawn-colorful-spicy-meal-food-logo-202511150601551R7l_2_iojszk.png' 
-            className='logologin' 
-            alt='logo'
+        <form className="formsigncontainer" onSubmit={this.onSubmit}>
+          <img
+            src="https://res.cloudinary.com/dune02pvg/image/upload/v1763186951/freepik-hand-drawn-colorful-spicy-meal-food-logo-202511150601551R7l_2_iojszk.png"
+            className="logologin"
+            alt="logo"
           />
 
-          <div className='inputdivsigncont'>
-            <label className='usernamelabelsign' htmlFor='signuserlab'>
+          <div className="inputdivsigncont">
+            <label className="usernamelabelsign" htmlFor="signuserlab">
               <FaUser /> USERNAME
             </label>
-            <input 
-              type="text" 
-              required 
-              placeholder='enter username' 
-              value={inputusersign} 
-              onChange={this.onChangeuserSignup} 
-              id='signuserlab' 
-              className='inputusernamesign'
+            <input
+              id="signuserlab"
+              type="text"
+              required
+              placeholder="Enter username"
+              className="inputusernamesign"
+              value={inputusersign}
+              onChange={(e) => this.setState({ inputusersign: e.target.value })}
             />
 
-            <label className='usernamelabelsign' htmlFor='signemaillab'>
+            <label className="usernamelabelsign" htmlFor="signemaillab">
               <MdEmail /> EMAIL
             </label>
-            <input 
-              type="email" 
-              required 
-              placeholder='enter email' 
-              value={inputemailsign} 
-              onChange={this.onChangeemailSignup} 
-              id='signemaillab' 
-              className='inputusernamesign'
+            <input
+              id="signemaillab"
+              type="email"
+              required
+              placeholder="Enter email"
+              className="inputusernamesign"
+              value={inputemailsign}
+              onChange={(e) =>
+                this.setState({ inputemailsign: e.target.value })
+              }
             />
 
-            <label className='usernamelabelsign' htmlFor='signpasslab'>
+            <label className="usernamelabelsign" htmlFor="signpasslab">
               <RiLockPasswordFill /> PASSWORD
             </label>
-            <input 
-              type="password" 
-              required 
-              placeholder='enter password' 
-              value={inputpasssign} 
-              onChange={this.onChangepassSignup} 
-              id='signpasslab' 
-              className='inputusernamesign'
+            <input
+              id="signpasslab"
+              type="password"
+              required
+              placeholder="Enter password"
+              className="inputusernamesign"
+              value={inputpasssign}
+              onChange={(e) =>
+                this.setState({ inputpasssign: e.target.value })
+              }
             />
 
-            <label className='usernamelabelsign' htmlFor='signconpasslab'>
+            <label className="usernamelabelsign" htmlFor="signconpasslab">
               <RiLockPasswordLine /> CONFIRM PASSWORD
             </label>
-            <input 
-              type="password" 
-              required 
-              placeholder='enter confirm password' 
-              value={inputconfirmsign} 
-              onChange={this.onChangeconfirmpassSignup} 
-              id='signconpasslab' 
-              className='inputusernamesign'
+            <input
+              id="signconpasslab"
+              type="password"
+              required
+              placeholder="Enter confirm password"
+              className="inputusernamesign"
+              value={inputconfirmsign}
+              onChange={(e) =>
+                this.setState({ inputconfirmsign: e.target.value })
+              }
             />
           </div>
 
           {errorMsg && <p className="errorMsgg">{errorMsg}</p>}
 
-          <button className='buttonlogincont'>Signup</button>
+          <button className="buttonlogincont">Signup</button>
 
           <p>
             Have an account? <Link to="/login">Log in</Link>
@@ -156,11 +153,9 @@ class Signup extends Component {
   }
 }
 
-
-
-function SignupWrapper(props) {
+function SignupWrapper() {
   const navigate = useNavigate();
-  return <Signup {...props} navigate={navigate} />;
+  return <Signup navigate={navigate} />;
 }
 
 export default SignupWrapper;

@@ -10,26 +10,7 @@ function Login() {
   const [inputpassword, setInputpassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const navigate = useNavigate();  
-
-  const onChangeUsername = (event) => {
-    setInputname(event.target.value);
-  };
-
-  const onChangeUserPassword = (event) => {
-    setInputpassword(event.target.value);
-  };
-
-  const onSubmitSuccess = (data) => {
-    Cookies.set("jwt_token", data.token, { expires: 10000 });
-
-   
-    navigate("/", { replace: true });
-  };
-
-  const onSubmitFailure = (data) => {
-    setErrorMsg(data.message || "Login failed");
-  };
+  const navigate = useNavigate();
 
   const onSubmitLogin = async (event) => {
     event.preventDefault();
@@ -40,24 +21,24 @@ function Login() {
     };
 
     const url = "https://userbackend-5mlf.onrender.com/login";
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(userDetails),
-    };
 
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userDetails),
+      });
+
       const data = await response.json();
 
       if (response.ok) {
-        onSubmitSuccess(data);
+        Cookies.set("jwt_token", data.token, { expires: 30 });
+        navigate("/", { replace: true });
       } else {
-        onSubmitFailure(data);
+        setErrorMsg(data.message || "Invalid Login Details");
       }
     } catch (error) {
-      setErrorMsg("Something went wrong");
+      setErrorMsg("Unable to connect to server");
     }
   };
 
@@ -86,7 +67,7 @@ function Login() {
             className="inputusernamelogin"
             placeholder="Enter Username"
             value={inputname}
-            onChange={onChangeUsername}
+            onChange={(e) => setInputname(e.target.value)}
           />
 
           <label className="passwordlabellogin" htmlFor="password">
@@ -99,7 +80,7 @@ function Login() {
             className="inputpasswordlogin"
             placeholder="Enter password"
             value={inputpassword}
-            onChange={onChangeUserPassword}
+            onChange={(e) => setInputpassword(e.target.value)}
           />
         </div>
 
