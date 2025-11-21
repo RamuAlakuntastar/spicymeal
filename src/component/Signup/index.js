@@ -41,7 +41,7 @@ class Signup extends Component {
 
     try {
       const response = await fetch(
-        "https://userbackend-5mlf.onrender.com/signup",
+        "https://userbackend-3o0u.onrender.com/signup",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
