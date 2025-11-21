@@ -8,7 +8,7 @@ import Iteam from './component/Iteam';
 import Cart from './component/Cart';
 import contextContent from './context/contextContent';
 import { Component } from 'react';
-import RedProtectedRoute from "./component/redProtectedRoute";
+/**import RedProtectedRoute from "./component/redProtectedRoute";**/
 
 class App extends Component {
   state = {
@@ -43,27 +43,27 @@ class App extends Component {
             <Route
               path="/"
               element={
-                <RedProtectedRoute>
+             
                   <Home />
-                </RedProtectedRoute>
+              
               }
             />
 
             <Route
               path="/iteam"
               element={
-                <RedProtectedRoute>
+               
                   <Iteam />
-                </RedProtectedRoute>
+               
               }
             />
 
             <Route
               path="/cart"
               element={
-                <RedProtectedRoute>
+              
                   <Cart />
-                </RedProtectedRoute>
+               
               }
             />
 

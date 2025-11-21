@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+/**import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const RedProtectedRoute = ({ children }) => {
@@ -12,3 +12,4 @@ const RedProtectedRoute = ({ children }) => {
 };
 
 export default RedProtectedRoute;
+**/

@@ -1,10 +1,10 @@
 import "./index.css";
-import { Link, /**Navigate,**/ useNavigate } from "react-router-dom";
+import { Link, /**Navigate,**/ } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiLockPasswordLine } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { Component } from "react";
-import Cookies from "js-cookie";
+/**import Cookies from "js-cookie";**/
 
 class Signup extends Component {
   state = {
@@ -16,8 +16,8 @@ class Signup extends Component {
   };
 
   // SUCCESS HANDLER
-  successresponse = (data) => {
-    Cookies.set("jwt_token", data.token, { expires: 30, path: "/" });
+ /**  successresponse = (data) => {
+  Cookies.set("jwt_token", data.token, { expires: 30, path: "/" });
     this.props.navigate("/", { replace: true });
   };
 
@@ -59,7 +59,7 @@ class Signup extends Component {
     } catch (err) {
       this.setState({ errorMsg: "Unable to connect to server" });
     }
-  };
+  };**/
 
   render() {
     const { errorMsg, inputusersign, inputemailsign, inputpasssign, inputconfirmsign } =
@@ -142,7 +142,7 @@ class Signup extends Component {
 
           {errorMsg && <p className="errorMsgg">{errorMsg}</p>}
 
-          <button className="buttonlogincont">Signup</button>
+          <button className="buttonlogincont"><Link className="lLink" to="/" >SignUp</Link></button>
 
           <p>
             Have an account? <Link to="/login">Log in</Link>
@@ -153,9 +153,9 @@ class Signup extends Component {
   }
 }
 
-function SignupWrapper() {
+/**function SignupWrapper() {
   const navigate = useNavigate();
   return <Signup navigate={navigate} />;
-}
+}**/
 
-export default SignupWrapper;
+export default Signup

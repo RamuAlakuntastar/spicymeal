@@ -3,8 +3,8 @@ import './index.css'
 import { GrLinkNext } from "react-icons/gr";
 import {Link } from "react-router-dom"
  
-import { Navigate } from 'react-router-dom';
-import Cookies from "js-cookie"
+/**import { Navigate } from 'react-router-dom';
+import Cookies from "js-cookie"**/
 
 import Header from '../Header'
 
@@ -14,10 +14,10 @@ import Header from '../Header'
 
 
 const   Home = ()  => {
-   const jwtToken = Cookies.get("jwt_token")
+  /**  const jwtToken = Cookies.get("jwt_token")
      if(jwtToken === undefined){
       return <Navigate to="/" replace/>
-     }
+     }**/
    
 
     return ( <div className="homecont"><Header/>
