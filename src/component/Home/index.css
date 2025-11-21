@@ -73,7 +73,10 @@ body {
     width: 7vw;
     z-index: 2;
 }
-
+.lLink {
+    color: white;
+    text-decoration: none;
+}
 .footerContainer {
     height: 54vh;
     width: 100%;

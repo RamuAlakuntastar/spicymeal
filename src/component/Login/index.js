@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, /**Navigate**/useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 function Login() {
@@ -42,10 +42,11 @@ function Login() {
     }
   };
 
-  const jwtToken = Cookies.get("jwt_token");
-  if (jwtToken !== undefined) {
-    return <Navigate to="/" replace />;
-  }
+
+   /***  const jwtToken = Cookies.get("jwt_token");
+    if (jwtToken !== undefined) {
+      return <Navigate to="/" replace />;
+    }**/
 
   return (
     <div className="loginContainer">

@@ -28,7 +28,12 @@ const   Home = ()  => {
         <h1 className='headingposter1'>Delicious</h1>
         <p className='paraposter1'>Food menu</p>
         <p className='paraposter2'>Order your favorites now and enjoy hot, fresh meals delivered straight to your door — with exclusive deals every day!. <br/> Hungry? Get flat 30% OFF on your first food order. Fast delivery, fresh ingredients, and unbeatable taste!</p>
-       <Link to="/iteam"><button className='buttonordernow'>Order Now <GrLinkNext /></button></Link>
+     
+                    <button className='buttonordernow'>
+                      <Link className='lLink' to="/iteam">
+                      Order Now <GrLinkNext /></Link>
+                    </button>
+                  
   
     </div>
    

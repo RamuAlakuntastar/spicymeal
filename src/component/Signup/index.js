@@ -1,5 +1,5 @@
 import "./index.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, /**Navigate,**/ useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill, RiLockPasswordLine } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
@@ -66,10 +66,10 @@ class Signup extends Component {
       this.state;
 
     // Already logged in
-    const jwtToken = Cookies.get("jwt_token");
+  /**   const jwtToken = Cookies.get("jwt_token");
     if (jwtToken !== undefined) {
       return <Navigate to="/" replace />;
-    }
+    }**/
 
     return (
       <div className="signContainer">
