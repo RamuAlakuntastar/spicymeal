@@ -8,6 +8,10 @@ body {
 }
 
 
+.homecont {
+    height: 100vh;
+    width: 100%;
+}
 
 
 
@@ -23,7 +27,7 @@ body {
     background-repeat: no-repeat;
     position: relative;
     background-size: cover;
-    background-image: url("https://ik.imagekit.io/yes4v45dgd/top-close-up-view-cabbage-with-carrots-plate-cabbage-carrots-herbs-fork-bowls-spices%20(1).jpg?updatedAt=1763200747386");
+    background-image: url("https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ix0mifgcpywoaeptbjh3");
 }
 
 .headingposter1 {
@@ -68,4 +72,51 @@ body {
     height: 5vh;
     width: 7vw;
     z-index: 2;
+}
+
+.footerContainer {
+    height: 54vh;
+    width: 100%;
+    background-color: rgba(232, 226, 226, 0.878);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.imgfooterheading {
+    font-size: 10px;
+    color: gray;
+}
+
+.imglogoo {
+    height: 14vh;
+    width: auto;
+    margin-left: 10px;
+}
+.companyrulecontainer {
+    height: 43vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style-type: none;
+
+}
+.comhead {
+     color: black;
+     font-weight: bold;
+     font-size: 18px;
+}
+.list {
+    color: gray;
+    font-size: 13px;
+}
+.listsocial {
+    color: gray;
+    width: 09vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 4vh;
 }

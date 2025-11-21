@@ -85,3 +85,8 @@ body {
     margin-bottom: 10px;
 
 }
+
+.errorMsgg {
+    color: red;
+    font-size: 8px;
+}

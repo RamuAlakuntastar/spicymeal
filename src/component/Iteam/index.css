@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.itemContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.searchcontainer {
+    height: 14vh;
+    width: 80%;
+   
+     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchinput {
+    height: 5vh;
+    width: 22vw;
+    border-radius: 10px;
+    border: 2px solid  black;
+    padding: 10px;
+}
+.selectcont {
+    height: 5vh;
+    width: 13vw;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid black;
+   
+}
+.itemCard {
+    height: 250vh;
+    width: 80%;
+    background-color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+   
+
+}
+
