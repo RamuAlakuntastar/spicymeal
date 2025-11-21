@@ -20,7 +20,7 @@ function Login() {
       password: inputpassword,
     };
 
-    const url = "https://userbackend-3o0u.onrender.com/login";
+    const url = "http://localhost:3000/api/user/login";
 
     try {
       const response = await fetch(url, {
